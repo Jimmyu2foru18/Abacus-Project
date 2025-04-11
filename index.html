@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Abacus Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="abacus-container">
+        <h1>Interactive Abacus Calculator</h1>
+        
+        <div class="abacus-frame">
+            <!-- Rods will be dynamically generated -->
+            <div class="rod-container" id="rodContainer"></div>
+        </div>
+
+        <div class="controls-panel">
+            <div class="value-display">
+                <span class="current-value" id="currentValue">0</span>
+                <span class="value-label">Current Value</span>
+            </div>
+            
+            <div class="history-panel">
+                <button id="undoBtn" aria-label="Undo last action" class="control-btn">
+                    <span class="icon">↶</span> Undo
+                </button>
+                <button id="redoBtn" aria-label="Redo last action" class="control-btn">
+                    <span class="icon">↷</span> Redo
+                </button>
+                <button id="resetBtn" aria-label="Reset all beads" class="control-btn">
+                    <span class="icon">↺</span> Reset
+                </button>
+            </div>
+
+            <div class="instructions">
+                <p>Click or drag beads to move them. Use Shift+Click to reset a rod.</p>
+                <p>Use arrow keys for keyboard navigation.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

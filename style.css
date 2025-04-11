@@ -1,0 +1,157 @@
+:root {
+    --frame-bg: #3e352b;
+    --rod-color: #5a4d41;
+    --bead-color: #c5b358;
+    --active-bead: #ffd700;
+    --text-color: #333;
+    --control-bg: #f5f5f5;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: #f0f0f0;
+}
+
+.abacus-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--frame-bg);
+}
+
+.abacus-frame {
+    background: var(--frame-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px var(--shadow-color);
+    margin-bottom: 2rem;
+}
+
+.rod-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 1rem;
+    min-height: 400px;
+    position: relative;
+}
+
+.rod {
+    position: relative;
+    background: var(--rod-color);
+    width: 4px;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.bead {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: var(--bead-color);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.bead.active {
+    background: var(--active-bead);
+}
+
+.bead:hover {
+    filter: brightness(1.1);
+}
+
+.controls-panel {
+    background: var(--control-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.value-display {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.current-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.value-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.history-panel {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.control-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: var(--frame-bg);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.control-btn:hover {
+    background: #4a4139;
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.instructions {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .abacus-container {
+        margin: 1rem;
+    }
+
+    .rod-container {
+        min-height: 300px;
+    }
+
+    .bead {
+        width: 30px;
+    }
+
+    .history-panel {
+        flex-wrap: wrap;
+    }
+}
